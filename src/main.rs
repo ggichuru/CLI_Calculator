@@ -17,16 +17,12 @@ fn main() {
 }
 
 fn operate(operator: char, first_number: f32, second_number: f32) -> f32 {
-    if operator == '+' {
-        return first_number + second_number;
-    } else if operator == '-' {
-        return first_number - second_number;
-    } else if operator == '*' {
-        return first_number * second_number;
-    } else if operator == '/' {
-        return first_number / second_number;
-    } else {
-        panic!("Invalid operator");
+    match operator {
+        '+' => first_number + second_number,
+        '-' => first_number - second_number,
+        '*' | 'x' | 'X' => first_number * second_number,
+        '/' => first_number / second_number,
+        _ => panic!("Invalid operator {:?} used", operator),
     }
 }
 
